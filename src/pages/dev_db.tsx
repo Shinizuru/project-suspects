@@ -12,11 +12,12 @@ import {
   IonToolbar,
   IonSearchbar,
   IonFooter,
+  IonButton,
   useIonViewWillEnter
 } from '@ionic/react';
 import './Home.css';
 
-const Home: React.FC = () => {
+const DevDB: React.FC = () => {
 
   const [messages, setMessages] = useState<Message[]>([]);
   const [searchText, setSearchText] = useState('');
@@ -33,11 +34,12 @@ const Home: React.FC = () => {
     }, 3000);
   };
 
+
   return (
     <IonPage id="home-page">
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Inbox</IonTitle>
+          <IonTitle>dev</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
@@ -48,22 +50,13 @@ const Home: React.FC = () => {
         <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">
-              Pilih Wilayah
+              DB
             </IonTitle>
           </IonToolbar>
         </IonHeader>
-        <IonSearchbar value={searchText} onIonChange={e => [setSearchText(e.detail.value!)]}></IonSearchbar>
-        <IonList>
-          {messages.map(m => <MessageListItem key={m.id} message={m} />)}
-        </IonList>
       </IonContent>
-      <IonFooter>
-        <IonToolbar>
-          Search Text: {searchText ?? '(none)'}
-        </IonToolbar>
-      </IonFooter>
     </IonPage>
   );
 };
 
-export default Home;
+export default DevDB;

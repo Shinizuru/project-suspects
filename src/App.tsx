@@ -2,8 +2,10 @@ import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import Home from './pages/Home';
-import ViewMessage from './pages/ViewMessage';
+import ViewWilayah from './pages/ViewWilayah';
+import devDB from "./pages/dev_db";
+import FormSuspects from "./pages/FormSuspects";
+import ViewSuspect from "./pages/ViewSuspect";
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -28,9 +30,12 @@ const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
-        <Route path="/home" component={Home} exact={true} />
-        <Route path="/message/:id" component={ViewMessage} exact={true} />
-        <Route exact path="/" render={() => <Redirect to="/home" />} />
+        <Route path="/home" component={ViewWilayah} exact={true} />
+        <Route path="/form" component={FormSuspects} exact={true} />
+        <Route path="/dev" component={devDB} exact={true} />
+        <Route path="/suspect/:id" component={ViewSuspect} exact={true}></Route>
+        {/* <Route path="/wilayah/:id" component={ViewMessage} exact={true} /> */}
+        <Route exact path="/" render={() => <Redirect to="/form" />} />
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
